@@ -1,0 +1,26 @@
+---
+# tasks file for fw_rules
+
+- debug:
+    var: fw_rule_request_list
+
+- name: Normalize firewall src
+  set_fact:
+    fw_rule_request_list_src: "{{ lookup( 'template', 'parse_fw_rules_src.j2') }}"
+
+- debug:
+    var: fw_rule_request_list_src
+
+- name: Normalize firewall dst
+  set_fact:
+    fw_rule_request_list_dst: "{{ lookup( 'template', 'parse_fw_rules_dst.j2') }}"
+
+- debug:
+    var: fw_rule_request_list_dst
+
+- name: Normalize ports
+  set_fact:
+    fw_rule_request_list_normal: "{{ lookup( 'template', 'parse_fw_rules_ports.j2') }}"
+
+- debug:
+    var: fw_rule_request_list_normal

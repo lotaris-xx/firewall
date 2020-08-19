@@ -1,0 +1,12 @@
+[
+{% for rule in fw_rule_request_list %}
+{% for src in rule.src %}
+{
+"src": "{{ src }}",
+"dst": {{ rule.dst }},
+"proto": "{{ rule.proto }}",
+"ports": {{ rule.ports }}
+},
+{% endfor %}
+{% endfor %}
+]

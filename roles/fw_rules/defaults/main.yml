@@ -1,0 +1,7 @@
+---
+# defaults file for fw_rules
+fw_rule_request_list:
+  - { src: [ '10.1.1.1', '10.5.3.2' , '10.54.6.5' ],
+      dst: [ '172.26.44.25' ],
+      proto: tcp,
+      ports: [ "21", "25", "36", "39-99" ] }

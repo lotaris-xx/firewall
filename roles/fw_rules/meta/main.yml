@@ -1,0 +1,8 @@
+galaxy_info:
+  author: Allen Smith
+  description: Parse out firewall rules
+  company: Red Hat
+
+  license: MIT
+
+  min_ansible_version: 2.9

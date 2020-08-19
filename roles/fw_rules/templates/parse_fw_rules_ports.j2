@@ -1,0 +1,18 @@
+[
+{% for rule in fw_rule_request_list_src %}
+{% for portspec in rule.ports %}
+{
+"src": "{{ rule.src }}",
+"dst": "{{ rule.dst }}",
+"proto": "{{ rule.proto }}",
+{% if '-' in portspec %}
+{% set port_start_end = portspec.split('-') %}
+"port_start": "{{ port_start_end[0] }}",
+"port_end": "{{ port_start_end[1] }}"
+{% else %}
+"port_start": "{{ portspec }}"
+{% endif %}
+},
+{% endfor %}
+{% endfor %}
+]
