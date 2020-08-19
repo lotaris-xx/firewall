@@ -2,7 +2,7 @@
 # tasks file for fw_rules
 
 - debug:
-    var: fw_rule_request_list
+    var: fw_request
 
 - name: Normalize firewall src
   set_fact:
