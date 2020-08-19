@@ -2,8 +2,6 @@
 {% for rule in fw_rule_request_list_src %}
 {% for dst in rule.dst %}
 {
-"tenant": "{{ rule.tenant }}",
-"filter": "{{ rule.filter }}",
 "src": "{{ rule.src }}",
 "dst": "{{ dst }}",
 "proto": "{{ rule.proto }}",

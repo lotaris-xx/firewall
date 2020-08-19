@@ -2,8 +2,6 @@
 {% for rule in fw_rule_request_list_dst %}
 {% for portspec in rule.ports %}
 {
-"tenant": "{{ rule.tenant }}",
-"filter": "{{ rule.filter }}",
 "src": "{{ rule.src }}",
 "dst": "{{ rule.dst }}",
 "proto": "{{ rule.proto }}",

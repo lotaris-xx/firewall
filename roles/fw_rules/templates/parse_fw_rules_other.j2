@@ -1,18 +1,20 @@
-{# Misc actions, like add the name #}
+{# Misc actions, like add the name
+If there is data common to all rules then this would be a good place to add them (like tenant below)
+#}
 [
 {% for rule in fw_rule_request_list_normal %}
 {
-"tenant": "{{ rule.tenant }}",
-"filter": "{{ rule.filter }}",
+"tenant": "{{ fw_request.tenant }}",
+"filter": "{{ fw_request.filter }}",
 "src": "{{ rule.src }}",
 "dst": "{{ rule.dst }}",
 "proto": "{{ rule.proto }}",
 "port_start": "{{ rule.port_start }}",
 {% if rule.port_end is defined %}
 "port_end": "{{ rule.port_end }}",
-"name": "{{ rule.filter }}_{{ rule.port_start }}-{{ rule.port_end }}",
+"name": "{{ fw_request.filter }}_{{ rule.port_start }}-{{ rule.port_end }}",
 {% else %}
-"name": "{{ rule.filter }}_{{ rule.port_start }}",
+"name": "{{ fw_request.filter }}_{{ rule.port_start }}",
 {% endif %}
 },
 {% endfor %}
