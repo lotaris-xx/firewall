@@ -1,5 +1,5 @@
 [
-{% for rule in fw_rule_request_list_src %}
+{% for rule in fw_rule_request_list_dst %}
 {% for portspec in rule.ports %}
 {
 "src": "{{ rule.src }}",
