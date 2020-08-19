@@ -24,3 +24,11 @@
 
 - debug:
     var: fw_rule_request_list_normal
+
+- name: Other work on rules
+  set_fact:
+    fw_rule_request_list_other: "{{ lookup( 'template', 'parse_fw_rules_other.j2') }}"
+
+- debug:
+    var: fw_rule_request_list_other
+

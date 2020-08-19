@@ -1,0 +1,19 @@
+{# Misc actions, like add the name #}
+[
+{% for rule in fw_rule_request_list_normal %}
+{
+"tenant": "{{ rule.tenant }}",
+"filter": "{{ rule.filter }}",
+"src": "{{ rule.src }}",
+"dst": "{{ rule.dst }}",
+"proto": "{{ rule.proto }}",
+"port_start": "{{ rule.port_start }}",
+{% if rule.port_end is defined %}
+"port_end": "{{ rule.port_end }}",
+"name": "{{ rule.filter }}_{{ rule.port_start }}-{{ rule.port_end }}",
+{% else %}
+"name": "{{ rule.filter }}_{{ rule.port_start }}",
+{% endif %}
+},
+{% endfor %}
+]
