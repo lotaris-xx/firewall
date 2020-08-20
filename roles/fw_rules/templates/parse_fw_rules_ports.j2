@@ -10,7 +10,8 @@
 "port_start": "{{ port_start_end[0] }}",
 "port_end": "{{ port_start_end[1] }}"
 {% else %}
-"port_start": "{{ portspec }}"
+"port_start": "{{ portspec }}",
+"port_end": "unspecified"
 {% endif %}
 },
 {% endfor %}

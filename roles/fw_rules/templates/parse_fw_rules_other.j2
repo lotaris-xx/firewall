@@ -10,11 +10,11 @@ If there is data common to all rules then this would be a good place to add them
 "dst": "{{ rule.dst }}",
 "proto": "{{ rule.proto }}",
 "port_start": "{{ rule.port_start }}",
-{% if rule.port_end is defined %}
 "port_end": "{{ rule.port_end }}",
-"name": "{{ fw_request.filter }}_{{ rule.port_start }}-{{ rule.port_end }}",
-{% else %}
+{% if "unspecified" in rule.port_end %}
 "name": "{{ fw_request.filter }}_{{ rule.port_start }}",
+{% else %}
+"name": "{{ fw_request.filter }}_{{ rule.port_start }}-{{ rule.port_end }}",
 {% endif %}
 },
 {% endfor %}
